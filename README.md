@@ -8,14 +8,14 @@
 
 ## How to Build and Run
 
-1.  Save the provided Python code content as `OS_Amir_Nour.py`.
+1.  Save the provided Python code content as `OS_Amir.py`.
 2.  Create the input file `Processes.txt` in the same directory, following the format described above. You can use examples from `TestCases.txt`.
 3.  Ensure `matplotlib` is installed (`pip install matplotlib`).
 4.  Open a terminal or command prompt.
 5.  Navigate to the directory where you saved the files.
 6.  Run the script using the Python interpreter:
     ```bash
-    python OS_Amir_Nour.py
+    python OS_Amir.py
     ```
 7.  Observe the simulation progress printed to the console and logged to `scheduler.log`. A `matplotlib` window will pop up showing the Gantt chart after the simulation completes. A `trace_logs.txt` file will also be created with detailed step-by-step logs.
 
