@@ -1,4 +1,4 @@
-# Birzeit University - CPU Scheduler Simulation
+#CPU Scheduler Simulation
 
 ## Overview
 
