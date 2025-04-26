@@ -1,0 +1,51 @@
+TestCase 1:
+
+0 0 1 CPU {R[1], 50, F[1]}   
+1 5 1 CPU {20} IO{30} CPU{20, R[2], 30, F[2], 10}
+
+
+TestCase 2:
+
+0 0 0 CPU{10} IO{30} CPU{10} 
+1 0 0 CPU{20} 
+
+
+TestCase 3:
+
+0 0 1 CPU {R[1], 50, F[1]}   
+1 5 1 CPU {20} IO{30} CPU{20, R[2], 30, F[2], 10}
+2 0 2 CPU {5}  IO{15} CPU {5}
+3 0 2 CPU {10}  
+
+
+TestCase 4:
+
+0 0 2 CPU {R[1], 50, F[1]}   
+1 5 1 CPU {20} IO{30} CPU{20, R[2], 30, F[2], 10}
+
+
+TestCase 5:
+
+0 0 1 CPU {R[1], 50, F[1]}   
+1 5 2 CPU {20} IO{30} CPU{20, R[2], 30, F[2], 10}
+
+
+TestCase 6:
+
+0 0 2 CPU {R[1], 50, F[1]}   
+1 5 1 CPU {20} IO{30} CPU{20, R[2], 30, F[2], 10}
+2 0 3 CPU {5}  IO{15} CPU {5}
+3 0 3 CPU {10}
+
+
+TestCase 7"Deadlock":
+
+0 0 1 CPU{R[1], 15, R[2], 10, F[1], F[2]} 
+1 0 1 CPU{5, R[2], R[1], 10, F[2], F[1]}
+
+
+TestCase 8"Deadlock":
+
+0 0 1 CPU{R[1], 15, R[2], 10, F[1], F[2]} 
+1 0 1 CPU{5, R[2], R[1], 10, F[2], F[1]}
+2 0 0 CPU{50}
