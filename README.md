@@ -1,3 +1,55 @@
+# Birzeit University - CPU Scheduler Simulation
+
+## Overview
+
+This project implements a **CPU Scheduler Simulation** using Python. It simulates the behavior of an operating system's CPU scheduler, handling multiple processes with varying arrival times, priorities, and burst types (CPU and I/O). The system incorporates a priority-based scheduling algorithm with Round Robin within each priority level, and basic resource management (requesting and releasing resources).
+
+## Description
+
+The simulation reads process definitions from an input file (`Processes.txt`), each describing a process's ID, arrival time, priority, and a sequence of bursts. Bursts can be CPU execution, I/O operations, resource requests, or resource releases. The scheduler manages a ready queue organized by priority, an I/O queue, and tracks resource allocation. It steps through time units, executing processes based on the scheduling algorithm and handling resource contention.
+
+## Files
+
+*   `OS_Amir_Nour.py`: The main Python script containing the `Process`, `Resource`, and `Scheduler` classes, as well as the simulation logic, input parsing, and output generation.
+*   `Processes.txt`: The input file containing the definitions of processes to be simulated.
+*   `TestCases.txt`: Contains example process definitions and scenarios, illustrating the input file format and various test cases.
+
+## Features
+
+*   Reads process data from a text file (`Processes.txt`).
+*   Implements a CPU scheduler combining **Priority Scheduling** and **Round Robin** (within each priority level).
+*   Handles **CPU bursts** (execution time).
+*   Handles **I/O bursts** (waiting time for I/O completion).
+*   Manages **Resources**, supporting **Request (R)** and **Release (F)** operations.
+*   Maintains a **Priority Ready Queue** and an **I/O Queue**.
+*   Simulates execution time step by time step.
+*   Calculates and displays key performance metrics: **Average Waiting Time** and **Average Turnaround Time**.
+*   Generates a **visual Gantt Chart** using `matplotlib` to show CPU utilization, I/O activity, and ready queue states over time.
+*   Generates detailed **trace logs** showing system state changes at each time step, written to `scheduler.log` and `trace_logs.txt`.
+*   Includes robust **input validation** for process definitions.
+
+## Input File Format (`Processes.txt`)
+
+Each line in `Processes.txt` defines a single process with the following format:
+
+`PID ARRIVAL_TIME PRIORITY BURST1 BURST2 ...`
+
+*   `PID`: A unique non-negative integer (Process ID).
+*   `ARRIVAL_TIME`: A non-negative integer indicating when the process enters the system.
+*   `PRIORITY`: A non-negative integer representing the process priority (lower number usually indicates higher priority, as per typical OS conventions).
+*   `BURSTs`: A sequence of burst definitions, separated by spaces. Each burst is defined as `TYPE{operations}`.
+    *   `TYPE`: Can be `CPU` or `IO`.
+    *   `operations`: A comma-separated list of operations within the burst.
+        *   For `CPU` bursts:
+            *   Numeric value (e.g., `50`): CPU execution time in time units.
+            *   `R{ResourceID}`: Request for the resource with `ResourceID`.
+            *   `F{ResourceID}`: Release of the resource with `ResourceID`.
+        *   For `IO` bursts: Usually a single numeric value representing the I/O duration (e.g., `IO{30}`).
+
+Example (`Processes.txt` based on `TestCases.txt` and code parsing):
+0 0 1 CPU{R{1}, 50, F{1}}
+1 5 1 CPU{20} IO{30} CPU{20, R{2}, 30, F{2}, 10}
+
 
 ## Requirements
 
